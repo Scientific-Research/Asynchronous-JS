@@ -41,11 +41,16 @@ const getDogPic = async () => {
 
       // it await promises of all three and save the result as resolved Promises in all variable
       const all = await Promise.all([res1Promise, res2Promise, res3Promise]);
-      console.log(all);
+      const imgs = all.map((el) => el.body.message);
+      //   console.log(all);
+      console.log(imgs);
 
-      console.log(res.body);
+      //   console.log(res.body);
+      //   console.log(imgs.body);
 
-      await writeFilePromise(`${__dirname}/dog-written.txt`, res.body.message);
+      //   await writeFilePromise(`${__dirname}/dog-written.txt`, res.body.message);
+      // join('') convert it to string and \n => will write them in three different line!
+      await writeFilePromise(`${__dirname}/dog-written.txt`, imgs.join('\n'));
       console.log(`Random dog image saved to the file`);
    } catch (err) {
       console.log(err);
