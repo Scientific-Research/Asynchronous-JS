@@ -58,7 +58,8 @@ console.log('1:Will get dog pics!');
 // INSTEAD OF BELOW FUNCTION, WE CAN USE IIFE: Immediately Invoked Function Expression
 // (async()=>{
 //  ...
-// })()
+// })(); => these two paranthesis shows us that IIFE can run right away and we don't need
+// to assign a name and call it somewhere else later. IIFE doesn't have name and runs right away!
 const x = async () => {
    try {
       const f = await getDogPic();
