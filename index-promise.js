@@ -44,9 +44,12 @@ const getDogPic = async () => {
 
 console.log('1:Will get dog pics!');
 // at the end, we have to call our function to start to work!
-const readyValue = getDogPic();
-console.log(readyValue);
+// const readyValue = getDogPic();
+getDogPic().then((result) => {
+   console.log(result);
+});
 console.log('3:Done getting dog pics!');
+// console.log(readyValue);
 /*
 readFilePromise(`${__dirname}/dog.txt`)
    // here we have Promise from readFilePromise, then we will go to the .then
