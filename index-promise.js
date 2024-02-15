@@ -25,12 +25,27 @@ const writeFilePromise = (file, data) => {
    });
 };
 
+// to write our function using Async-Await insread of .then()-.catch()
+const getDogPic = async () => {
+   const result = await readFilePromise(`${__dirname}/dog.txt`);
+   console.log(`Breed: ${result}`);
+
+   const res = await superagent.get(`https://dog.ceo/api/breed/${result}/images/random`);
+   console.log(res.body);
+
+   await writeFilePromise(`${__dirname}/dog-written.txt`, res.body.message);
+   console.log(`Random dog image saved to the file`);
+};
+
+// at the end, we have to call our function to start to work!
+getDogPic();
+/*
 readFilePromise(`${__dirname}/dog.txt`)
    // here we have Promise from readFilePromise, then we will go to the .then
    .then((result) => {
       console.log(`Breed: ${result}`);
       return superagent.get(`https://dog.ceo/api/breed/${result}/images/random`);
-      // here we have Promise from superagent, then we will go to the .then
+      // here we have Promise f rom superagent, then we will go to the .then
    })
    .then((res) => {
       console.log(res.body);
@@ -44,3 +59,4 @@ readFilePromise(`${__dirname}/dog.txt`)
    .catch((err) => {
       console.log(err.message);
    });
+   */
