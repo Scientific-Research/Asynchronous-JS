@@ -28,7 +28,7 @@ const writeFilePromise = (file, data) => {
 // to write our function using Async-Await insread of .then()-.catch()
 const getDogPic = async () => {
    try {
-      const result = await readFilePromise(`${__dirname}/doguuu.txt`);
+      const result = await readFilePromise(`${__dirname}/dog.txt`);
       console.log(`Breed: ${result}`);
 
       const res = await superagent.get(`https://dog.ceo/api/breed/${result}/images/random`);
@@ -55,6 +55,10 @@ console.log('1:Will get dog pics!');
 // console.log('ERROR!');
 // });
 // TO USE ASYNC AND AWAIT TO GET THE RETURN VALUE FROM ASYNC FUNCTION:
+// INSTEAD OF BELOW FUNCTION, WE CAN USE IIFE: Immediately Invoked Function Expression
+// (async()=>{
+//  ...
+// })()
 const x = async () => {
    try {
       const f = await getDogPic();
