@@ -31,7 +31,18 @@ const getDogPic = async () => {
       const result = await readFilePromise(`${__dirname}/dog.txt`);
       console.log(`Breed: ${result}`);
 
-      const res = await superagent.get(`https://dog.ceo/api/breed/${result}/images/random`);
+      // const res = await superagent.get(`https://dog.ceo/api/breed/${result}/images/random`);
+      // to display three random images at the same time:
+      // first of all, we have to remove await and store the Promise in a variable and not the
+      // resolved one
+      const res1Promise = superagent.get(`https://dog.ceo/api/breed/${result}/images/random`);
+      const res2Promise = superagent.get(`https://dog.ceo/api/breed/${result}/images/random`);
+      const res3Promise = superagent.get(`https://dog.ceo/api/breed/${result}/images/random`);
+
+      // it await promises of all three and save the result as resolved Promises in all variable
+      const all = await Promise.all([res1Promise, res2Promise, res3Promise]);
+      console.log(all);
+
       console.log(res.body);
 
       await writeFilePromise(`${__dirname}/dog-written.txt`, res.body.message);
