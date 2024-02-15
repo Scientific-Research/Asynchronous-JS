@@ -45,9 +45,17 @@ const getDogPic = async () => {
 console.log('1:Will get dog pics!');
 // at the end, we have to call our function to start to work!
 // const readyValue = getDogPic();
-getDogPic().then((result) => {
-   console.log(result);
-});
+// TO USE .THEN() TO GET THE RETURN VALUE FROM ASYNC FUNCTION:
+// getDogPic().then((result) => {
+//    console.log(result);
+// });
+// TO USE ASYNC AND AWAIT TO GET THE RETURN VALUE FROM ASYNC FUNCTION:
+const x = async () => {
+   const f = await getDogPic();
+   console.log(f);
+};
+
+x();
 console.log('3:Done getting dog pics!');
 // console.log(readyValue);
 /*
