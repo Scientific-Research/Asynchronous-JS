@@ -28,7 +28,7 @@ const writeFilePromise = (file, data) => {
 // to write our function using Async-Await insread of .then()-.catch()
 const getDogPic = async () => {
    try {
-      const result = await readFilePromise(`${__dirname}/dog.txt`);
+      const result = await readFilePromise(`${__dirname}/doguuu.txt`);
       console.log(`Breed: ${result}`);
 
       const res = await superagent.get(`https://dog.ceo/api/breed/${result}/images/random`);
@@ -41,7 +41,6 @@ const getDogPic = async () => {
    }
    return '2: READY :)';
 };
-
 console.log('1:Will get dog pics!');
 // at the end, we have to call our function to start to work!
 // const readyValue = getDogPic();
@@ -54,7 +53,6 @@ const x = async () => {
    const f = await getDogPic();
    console.log(f);
 };
-
 x();
 console.log('3:Done getting dog pics!');
 // console.log(readyValue);
