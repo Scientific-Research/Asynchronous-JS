@@ -3,12 +3,18 @@ const superagent = require('superagent');
 // const http = require("http");
 
 // const server = http.createServer((req, res) => {
+// we have now tow call back function nested together!
 fs.readFile(`${__dirname}/dog.txt`, (err, data) => {
   console.log(`Breed: ${data}`);
 
   superagent.get(`https://dog.ceo/api/breed/${data}/images/random`).end((err, res) => {
     // res.end(data);
     console.log(res.body);
+    // console.log(res.body.message);
+    // console.log(res.body.status);
+    fs.writeFile(`${__dirname}/dog-written.txt`, `${res.body.message}`, 'utf-8', (err) => {
+      console.log(`The data was written: ${res.body.message}`);
+    });
   });
 });
 /* this is our callback function:(err, data) => {
