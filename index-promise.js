@@ -38,6 +38,10 @@ const getDogPic = async () => {
       console.log(`Random dog image saved to the file`);
    } catch (err) {
       console.log(err);
+      // with throw err, it will mark the entire function as reject, that's why it goes out of
+      // first function, then, it doesn't go to the try, rather, it goes directly to the
+      // catch(err) section!
+      throw err;
    }
    return '2: READY :)';
 };
@@ -47,11 +51,17 @@ console.log('1:Will get dog pics!');
 // TO USE .THEN() TO GET THE RETURN VALUE FROM ASYNC FUNCTION:
 // getDogPic().then((result) => {
 //    console.log(result);
+// }).catch(err => {
+// console.log('ERROR!');
 // });
 // TO USE ASYNC AND AWAIT TO GET THE RETURN VALUE FROM ASYNC FUNCTION:
 const x = async () => {
-   const f = await getDogPic();
-   console.log(f);
+   try {
+      const f = await getDogPic();
+      console.log(f);
+   } catch (err) {
+      console.log('ERROR');
+   }
 };
 x();
 console.log('3:Done getting dog pics!');
