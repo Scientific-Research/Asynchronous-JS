@@ -10,10 +10,11 @@ fs.readFile(`${__dirname}/dog.txt`, (err, data) => {
   superagent.get(`https://dog.ceo/api/breed/${data}/images/random`).end((err, res) => {
     // res.end(data);
     console.log(res.body);
+    // res.end(res.body.message);
     // console.log(res.body.message);
     // console.log(res.body.status);
     fs.writeFile(`${__dirname}/dog-written.txt`, `${res.body.message}`, 'utf-8', (err) => {
-      console.log(`The data was written: ${res.body.message}`);
+      console.log(`Random dog image saved to the file: ${res.body.message}`);
     });
   });
 });
