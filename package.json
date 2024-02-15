@@ -1,16 +1,16 @@
 {
-  "name": "asynchronous-js",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon index.js"
-  },
-  "keywords": [],
-  "author": "Maximilian",
-  "license": "ISC",
-  "dependencies": {
-    "nodemon": "^3.0.3",
-    "superagent": "^8.1.2"
-  }
+   "name": "asynchronous-js",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "start": "nodemon index-promise.js"
+   },
+   "keywords": [],
+   "author": "Maximilian",
+   "license": "ISC",
+   "dependencies": {
+      "nodemon": "^3.0.3",
+      "superagent": "^8.1.2"
+   }
 }
