@@ -10,6 +10,7 @@
   "author": "Maximilian",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.0.3",
+    "superagent": "^8.1.2"
   }
 }
